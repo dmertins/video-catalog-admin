@@ -1,0 +1,6 @@
+plugins {
+    id 'video.catalog.admin.java-conventions'
+}
+
+group 'com.dmertins.videocatalogadmin.domain'
+version '1.0-SNAPSHOT'

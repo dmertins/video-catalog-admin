@@ -1,0 +1,10 @@
+plugins {
+    id 'video.catalog.admin.java-conventions'
+}
+
+group 'com.dmertins.videocatalogadmin.application'
+version '1.0-SNAPSHOT'
+
+dependencies {
+    implementation project(path: ':domain')
+}
