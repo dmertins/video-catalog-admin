@@ -9,3 +9,10 @@ The project structure follows a 3-layer pattern:
 - domain
 - application
 - infrastructure
+
+## Domain overview
+The application domain is composed of the following aggregates:
+- Category
+- Genre
+- Cast Member
+- Video
