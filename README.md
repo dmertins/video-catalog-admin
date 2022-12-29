@@ -4,12 +4,6 @@ A **Video Catalog Management Service** designed with **Domain-Driven Design** (*
 ## Requirements
 - JDK 17
 
-## Application overview
-The project structure follows a 3-layer pattern:
-- domain
-- application
-- infrastructure
-
 ## Domain overview
 The system domain is composed of the following models:
 - _Video_: represents each binary video file available on the platform.
@@ -17,3 +11,8 @@ The system domain is composed of the following models:
 - _Genre_: represents the video stylistic or thematic category.
 - _Category_: represents the category of each video.
  
+## Architecture overview
+The project structure follows a 3-layer pattern:
+- domain
+- application
+- infrastructure
