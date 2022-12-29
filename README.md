@@ -16,3 +16,9 @@ The project structure follows a 3-layered pattern, where the _domain_ layer is o
 - _domain_
 - _application_
 - _infrastructure_
+
+## Tactical Patterns overview
+The project adopts the following patterns from DDD for structuring the _domain_ models:
+- _Entities_: represent objects that are distinguished by their identities.
+- _Value Objects_: represent objects that are distinguished by their attributes.
+- _Aggregates_: represent _entities_ that are responsible for clustering other _entities_ and _value objects_.
