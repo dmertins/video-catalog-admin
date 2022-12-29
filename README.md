@@ -12,7 +12,7 @@ The system domain is composed of the following models:
 - _Category_: represents the category of each video.
  
 ## Architecture overview
-The project structure follows a 3-layer pattern:
-- domain
-- application
-- infrastructure
+The project structure follows a 3-layered pattern, where the _domain_ layer is on the highest level, and each layer knows only the layers above it:
+- _domain_
+- _application_
+- _infrastructure_
