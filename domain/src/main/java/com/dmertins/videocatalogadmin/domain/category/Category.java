@@ -1,6 +1,7 @@
 package com.dmertins.videocatalogadmin.domain.category;
 
 import com.dmertins.videocatalogadmin.domain.Aggregate;
+import com.dmertins.videocatalogadmin.domain.validation.ValidationHandler;
 
 import java.time.Instant;
 
@@ -32,6 +33,11 @@ public class Category extends Aggregate<CategoryID> {
         final var id = CategoryID.unique();
         final var now = Instant.now();
         return new Category(id, name, description, isActive, now, now, null); 
+    }
+
+    @Override
+    public void validate(final ValidationHandler handler) {
+        new CategoryValidator(this, handler).validate();
     }
 
     public CategoryID getId() {
