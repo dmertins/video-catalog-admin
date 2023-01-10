@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CategoryTest {
 
     @Test
-    public void shouldCreateCategory() {
+    public void shouldCreateCategoryForValidParams() {
         final var expectedName = "Movies";
         final var expectedDescription = "The movies category";
         final var expectedIsActive = true;
