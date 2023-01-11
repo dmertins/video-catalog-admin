@@ -15,6 +15,7 @@ public class CategoryTest {
         final var expectedIsActive = true;
         final var actualCategory = Category.newCategory(expectedName, expectedDescription, expectedIsActive);
 
+        assertDoesNotThrow(() -> actualCategory.validate(new ThrowsValidationHandler()));
         assertNotNull(actualCategory);
         assertNotNull(actualCategory.getId());
         assertEquals(expectedName, actualCategory.getName());
