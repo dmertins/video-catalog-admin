@@ -32,7 +32,7 @@ public class CategoryTest {
         final var expectedDescription = "The movies category";
         final var expectedIsActive = true;
         final var expectedErrorCount = 1;
-        final var expectedErrorMessage = "'name' should not be null";
+        final var expectedErrorMessage = "'name' cannot be null";
 
         final var actualCategory = Category.newCategory(expectedName, expectedDescription, expectedIsActive);
 
