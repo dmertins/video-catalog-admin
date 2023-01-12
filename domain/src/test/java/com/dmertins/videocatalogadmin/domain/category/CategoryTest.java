@@ -41,4 +41,20 @@ public class CategoryTest {
         assertEquals(expectedErrorCount, actualException.getErrors().size());
         assertEquals(expectedErrorMessage, actualException.getErrors().get(0).message());
     }
+
+    @Test
+    public void shouldRaiseEmptyNameError() {
+        final var expectedName = "   ";
+        final var expectedDescription = "The movies category";
+        final var expectedIsActive = true;
+        final var expectedErrorCount = 1;
+        final var expectedErrorMessage = "'name' cannot be empty";
+
+        final var actualCategory = Category.newCategory(expectedName, expectedDescription, expectedIsActive);
+
+        final var actualException =
+                assertThrows(DomainException.class, () -> actualCategory.validate(new ThrowsValidationHandler()));
+        assertEquals(expectedErrorCount, actualException.getErrors().size());
+        assertEquals(expectedErrorMessage, actualException.getErrors().get(0).message());
+    }
 }

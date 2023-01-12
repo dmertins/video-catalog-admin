@@ -24,5 +24,10 @@ public class CategoryValidator extends Validator {
             this.validationHandler().append(new Error("'name' cannot be null"));
             return;
         }
+
+        if (name.isBlank()) {
+            this.validationHandler().append(new Error("'name' cannot be empty"));
+            return;
+        }
     }
 }
