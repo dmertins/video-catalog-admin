@@ -57,4 +57,36 @@ public class CategoryTest {
         assertEquals(expectedErrorCount, actualException.getErrors().size());
         assertEquals(expectedErrorMessage, actualException.getErrors().get(0).message());
     }
+
+    @Test
+    public void shouldRaiseInvalidNameLengthErrorForLessThan3() {
+        final var expectedName = "Mo ";
+        final var expectedDescription = "The movies category";
+        final var expectedIsActive = true;
+        final var expectedErrorCount = 1;
+        final var expectedErrorMessage = "'name' must be between 3 and 255 characters long";
+
+        final var actualCategory = Category.newCategory(expectedName, expectedDescription, expectedIsActive);
+
+        final var actualException =
+                assertThrows(DomainException.class, () -> actualCategory.validate(new ThrowsValidationHandler()));
+        assertEquals(expectedErrorCount, actualException.getErrors().size());
+        assertEquals(expectedErrorMessage, actualException.getErrors().get(0).message());
+    }
+
+    @Test
+    public void shouldRaiseInvalidNameLengthErrorForMoreThan255() {
+        final var expectedName = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i.";
+        final var expectedDescription = "The movies category";
+        final var expectedIsActive = true;
+        final var expectedErrorCount = 1;
+        final var expectedErrorMessage = "'name' must be between 3 and 255 characters long";
+
+        final var actualCategory = Category.newCategory(expectedName, expectedDescription, expectedIsActive);
+
+        final var actualException =
+                assertThrows(DomainException.class, () -> actualCategory.validate(new ThrowsValidationHandler()));
+        assertEquals(expectedErrorCount, actualException.getErrors().size());
+        assertEquals(expectedErrorMessage, actualException.getErrors().get(0).message());
+    }
 }
