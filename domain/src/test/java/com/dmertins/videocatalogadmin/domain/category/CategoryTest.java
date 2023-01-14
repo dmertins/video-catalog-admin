@@ -27,6 +27,24 @@ public class CategoryTest {
     }
 
     @Test
+    public void shouldCreateCategoryForEmptyDescription() {
+        final var expectedName = "Movies";
+        final var expectedDescription = "   ";
+        final var expectedIsActive = true;
+        final var actualCategory = Category.newCategory(expectedName, expectedDescription, expectedIsActive);
+
+        assertDoesNotThrow(() -> actualCategory.validate(new ThrowsValidationHandler()));
+        assertNotNull(actualCategory);
+        assertNotNull(actualCategory.getId());
+        assertEquals(expectedName, actualCategory.getName());
+        assertEquals(expectedDescription, actualCategory.getDescription());
+        assertEquals(expectedIsActive, actualCategory.isActive());
+        assertNotNull(actualCategory.getCreatedAt());
+        assertNotNull(actualCategory.getUpdatedAt());
+        assertNull(actualCategory.getDeletedAt());
+    }
+
+    @Test
     public void shouldRaiseNullNameError() {
         final String expectedName = null;
         final var expectedDescription = "The movies category";
