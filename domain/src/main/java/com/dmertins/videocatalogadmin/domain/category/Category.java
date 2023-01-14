@@ -32,7 +32,8 @@ public class Category extends Aggregate<CategoryID> {
     public static Category newCategory(final String name, final String description, final boolean isActive) {
         final var id = CategoryID.unique();
         final var now = Instant.now();
-        return new Category(id, name, description, isActive, now, now, null); 
+        final var deletedAt = isActive ? null : now;
+        return new Category(id, name, description, isActive, now, now, deletedAt);
     }
 
     @Override
