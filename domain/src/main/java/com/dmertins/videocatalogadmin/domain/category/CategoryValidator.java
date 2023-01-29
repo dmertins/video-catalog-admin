@@ -37,7 +37,7 @@ public class CategoryValidator extends Validator {
         final var length = name.trim().length();
         if (length < NAME_MIN_LENGTH || length > NAME_MAX_LENGTH) {
             final var errorMessageTemplate = "'name' must be between %d and %d characters long";
-            final var errorMessage = String.format(errorMessageTemplate, NAME_MIN_LENGTH, NAME_MAX_LENGTH);
+            final var errorMessage = errorMessageTemplate.formatted(NAME_MIN_LENGTH, NAME_MAX_LENGTH);
             this.validationHandler().append(new Error(errorMessage));
         }
     }
